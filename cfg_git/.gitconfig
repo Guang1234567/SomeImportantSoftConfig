@@ -1,0 +1,49 @@
+[user]
+	name = hg-li
+	email = hg-li@mygzb.com
+[core]
+	quotepath = false
+	editor = 'D:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+	autocrlf = false
+[diff]
+	tool = bc3
+	external = D:/dev_kit/PortableGit/git-diff-wrapper-bc3.sh
+	guitool = bc3
+	submodule = log
+[difftool "bc3"]
+	path = D:/dev_kit/Beyond Compare 3/BComp.exe
+[difftool "icdiff"]
+	path = D:/dev_kit/PortableGit/git-diff-wrapper-icdiff.sh
+[icdiff]
+	options = --line-numbers
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	path = D:/dev_kit/Beyond Compare 3/BComp.exe
+[alias]
+	st = status
+	cl = clone --recursive
+	co = checkout
+	cp = cherry-pick
+	ds = diff --staged
+	dc = diff --cached
+	ci = commit
+	br = branch
+	brs = branch -a --format='%(HEAD) %(if)%(HEAD)%(then)%(color:green)%(refname:short)%(if)%(upstream)%(then) -> %(upstream:track) %(upstream:short) %(color:bold magenta)(track)%(color:reset)%(end)%(color:reset)%(else)%(refname:short)%(if)%(upstream)%(then) -> %(upstream:track) %(upstream:short) %(color:bold magenta)(track)%(color:reset)%(end)%(end) \n\t %(color:bold yellow)%(objectname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:bold yellow)%(authorname)%(color:reset) | %(contents:subject)'
+	stage = add
+	unstage = reset HEAD --
+	lg = log --color --graph --decorate --pretty=format:'%C(bold yellow)%h%Creset - %C(bold yellow)%d%Creset %Cgreen%cr%Creset | %Cgreen%cd%Creset | %C(bold yellow)%an%Creset | %s' --abbrev-commit --date-order --date=format:'%Y-%m-%d %H:%M:%S %a' 
+	lgf = log --name-status --pretty=oneline --graph
+	last = log -1 --name-status
+	last2 = log -2 --name-status
+	last3 = log -3 --name-status
+	comp2br = log --oneline --left-right
+	bc3 = difftool --no-prompt --tool=bc3
+	icdiff = difftool --no-prompt --extcmd icdiff
+[pull]
+	rebase = true
+[credential]
+	helper = osxkeychain
+	helper = winstore
+	helper = cache --timeout 30000
+	helper = store --file ~/.my-credentials
