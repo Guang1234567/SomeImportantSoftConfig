@@ -1,0 +1,58 @@
+[core]
+	excludesfile = /Users/lihanguang/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "bc3"]
+	cmd = '/Applications/Beyond Compare.app/Contents/MacOS/bcomp' \"$LOCAL\" \"$REMOTE\" 
+	path = 
+[mergetool "bc3”]
+	cmd = '/Applications/Beyond Compare.app/Contents/MacOS/bcomp' \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "icdiff"]
+	path = /Users/lihanguang/dev_kit/src_code/github_code/SomeImportantSoftConfig/cfg_git/git-diff-wrapper-icdiff-mac.sh
+[user]
+	name = hg-li
+	email = hg-li@mygzb.com
+[diff]
+	tool = bc3
+	external = /Users/lihanguang/dev_kit/src_code/github_code/SomeImportantSoftConfig/cfg_git/git-diff-wrapper-bc-mac.sh
+	guitool = bc3
+	submodule = log
+[difftool]
+    prompt = false
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	trustExitCode = true
+[alias]
+	st = status
+	cl = clone --recursive
+	co = checkout
+	cp = cherry-pick
+	df = diff
+	ds = diff --staged
+	dc = diff --cached
+	ci = commit
+	br = branch
+	brs = branch -a --format='%(HEAD) %(if)%(HEAD)%(then)%(color:green)%(refname:short)%(if)%(upstream)%(then) -> %(upstream:track) %(upstream:short) %(color:bold magenta)(track)%(color:reset)%(end)%(color:reset)%(else)%(refname:short)%(if)%(upstream)%(then) -> %(upstream:track) %(upstream:short) %(color:bold magenta)(track)%(color:reset)%(end)%(end) \n\t %(color:bold yellow)%(objectname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:bold yellow)%(authorname)%(color:reset) | %(contents:subject)'
+	stage = add
+	unstage = reset HEAD --
+	lg = log --color --graph --decorate --pretty=format:'%C(bold yellow)%h%Creset - %C(bold yellow)%d%Creset %Cgreen%cr%Creset | %Cgreen%cd%Creset | %C(bold yellow)%an%Creset | %s' --abbrev-commit --date-order --date=format:'%Y-%m-%d %H:%M:%S %a' 
+	lgf = log --name-status --pretty=oneline --graph
+	last = log -1 --name-status
+	last2 = log -2 --name-status
+	last3 = log -3 --name-status
+	comp2br = log --oneline --left-right
+	bc3 = difftool --no-prompt --tool=bc3
+	icdf = difftool --no-prompt --extcmd='icdiff --line-numbers'
+[pull]
+	rebase = true
+[credential]
+	helper = osxkeychain
+	helper = winstore
+	helper = cache --timeout 30000
+	helper = store --file ~/.my-credentials
