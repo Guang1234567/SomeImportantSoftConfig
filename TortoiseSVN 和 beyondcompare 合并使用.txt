@@ -1,0 +1,10 @@
+D:\Program Files\Beyond Compare 3\BCompare.exe %base %mine /title1=%bname /title2=%yname /leftreadonly
+
+D:\Program Files\Beyond Compare 3\BCompare.exe %base %theirs %mine %merged /title1=%bname /title2=%tname /title3=%yname /title4=%mname /ro1 /ro2
+
+D:\Program Files\Beyond Compare 3\BCompare.exe %mine %theirs /savetarget=%merged
+
+
+"D:\Program Files\Beyond Compare 3\BComp.exe" %base %mine /title1=%bname /title2=%yname /leftreadonly
+
+"D:\Program Files\Beyond Compare 3\BComp.exe" %mine %theirs %base %merged /title1=%yname /title2=%tname /title3=%bname /title4=%mname
